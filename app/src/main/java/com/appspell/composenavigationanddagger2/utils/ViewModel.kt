@@ -4,6 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
+/**
+ * It uses LocalViewModelStoreOwner,
+ * which means the owner may be Activity, Fragment or NavBackStackEntry
+ */
 @Composable
 inline fun <reified T : ViewModel> daggerViewModel(
     key: String? = null,

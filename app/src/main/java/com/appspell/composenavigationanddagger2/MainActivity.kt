@@ -1,8 +1,9 @@
 package com.appspell.composenavigationanddagger2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -18,12 +19,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        Log.i("COMPNAVILOG", "Activity onCreate")
+
         setContent {
             val navController = rememberNavController()
 
             NavHost(navController, startDestination = NavigationDestination.Screen1.destination) {
                 composable(NavigationDestination.Screen1.destination) {
+
+                    Log.i("COMPNAVILOG", "Navigation Screen1")
+
                     val viewModel: Screen1ViewModel = daggerViewModel {
+                        Log.i("COMPNAVILOG", "create VM: Screen1ViewModel")
+
                         DaggerScreen1Component.builder().build()
                             .getViewModel()
                     }
@@ -34,7 +42,11 @@ class MainActivity : AppCompatActivity() {
                     )
                 }
                 composable(NavigationDestination.Screen2.destination) {
+                    Log.i("COMPNAVILOG", "Navigation Screen2")
+
                     val viewModel: Screen2ViewModel = daggerViewModel {
+                        Log.i("COMPNAVILOG", "create VM: Screen2ViewModel")
+
                         DaggerScreen2Component.builder().build()
                             .getViewModel()
                     }
