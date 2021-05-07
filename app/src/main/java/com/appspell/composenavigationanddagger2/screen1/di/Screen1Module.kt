@@ -7,6 +7,7 @@ import dagger.Provides
 @Module
 class Screen1Module {
 
+    // here is the simple code, but suppose that we provide something important here
     @Provides
     @Screen1Scope
     fun provideViewModel(): Screen1ViewModel = Screen1ViewModel()

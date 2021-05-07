@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 /**
  * It uses LocalViewModelStoreOwner,
  * which means the owner may be Activity, Fragment or NavBackStackEntry
+ * For our purposes we are going to use NavBackStackEntry
  */
 @Composable
 inline fun <reified T : ViewModel> daggerViewModel(
