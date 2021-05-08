@@ -6,10 +6,13 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class Screen2ViewModel @Inject constructor() : ViewModel() {
+class Screen2ViewModel(
+    val repository: Screen2Repository
+) : ViewModel() {
     private val _state = MutableStateFlow<String>("Second screen")
     val state: StateFlow<String>
         get() = _state
@@ -20,13 +23,10 @@ class Screen2ViewModel @Inject constructor() : ViewModel() {
         // Launch timer to see how our VM works in "background"
         // when we change screens
         viewModelScope.launch {
-            var counter = 1L
-            while (true) {
-                counter++
-                _state.value = "Second screen timer: $counter"
-                delay(1000)
-                Log.i("COMPNAVILOG", "Timer: $counter. VM: ${this@Screen2ViewModel}")
-            }
+            repository.startCounter()
+                .collect { value ->
+                    _state.value = value
+                }
         }
     }
 

@@ -29,11 +29,14 @@ class MainActivity : AppCompatActivity() {
 
                     Log.i("COMPNAVILOG", "Navigation Screen1")
 
+                    // option #1 create a component inside NavBackStackEntry,
+                    // which can be helpful if we need to provide more than one object from DI here
+                    val component = DaggerScreen1Component.builder().build()
+
                     val viewModel: Screen1ViewModel = daggerViewModel {
                         Log.i("COMPNAVILOG", "create VM: Screen1ViewModel")
 
-                        DaggerScreen1Component.builder().build()
-                            .getViewModel()
+                        component.getViewModel()
                     }
 
                     Screen1(
@@ -47,8 +50,8 @@ class MainActivity : AppCompatActivity() {
                     val viewModel: Screen2ViewModel = daggerViewModel {
                         Log.i("COMPNAVILOG", "create VM: Screen2ViewModel")
 
-                        DaggerScreen2Component.builder().build()
-                            .getViewModel()
+                        // option #2 create DI component and instantly get ViewModel instance
+                        DaggerScreen2Component.builder().build().getViewModel()
                     }
 
                     Screen2(

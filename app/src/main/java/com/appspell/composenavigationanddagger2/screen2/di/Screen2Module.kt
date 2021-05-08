@@ -1,20 +1,24 @@
 package com.appspell.composenavigationanddagger2.screen2.di
 
-import com.appspell.composenavigationanddagger2.screen1.Screen1ViewModel
-import com.appspell.composenavigationanddagger2.screen1.di.Screen1Scope
+import com.appspell.composenavigationanddagger2.screen2.Screen2Repository
+import com.appspell.composenavigationanddagger2.screen2.Screen2RepositoryImpl
 import com.appspell.composenavigationanddagger2.screen2.Screen2ViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 
 @Module
- class Screen2Module {
+abstract class Screen2Module {
 
-//    @Binds
-//    @Screen2Scope
-//    abstract fun provideViewModel(impl: Screen2ViewModel): Screen2ViewModel
+    @Module
+    companion object {
+        @Provides
+        @Screen2Scope
+        fun provideViewModel(repository: Screen2Repository): Screen2ViewModel =
+            Screen2ViewModel(repository = repository)
+    }
 
-    @Provides
+    @Binds
     @Screen2Scope
-    fun provideViewModel(): Screen2ViewModel = Screen2ViewModel()
+    abstract fun bindRepository(impl: Screen2RepositoryImpl): Screen2Repository
 }
