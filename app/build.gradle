@@ -41,28 +41,28 @@ android {
 
 dependencies {
     // appcompat & material
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
 
     // compose
-    implementation 'androidx.compose.ui:ui:1.0.0-beta06'
+    implementation 'androidx.compose.ui:ui:1.0.0-beta08'
     // Tooling support (Previews, etc.)
-    implementation 'androidx.compose.ui:ui-tooling:1.0.0-beta06'
+    implementation 'androidx.compose.ui:ui-tooling:1.0.0-beta08'
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation 'androidx.compose.foundation:foundation:1.0.0-beta06'
-    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha06"
+    implementation 'androidx.compose.foundation:foundation:1.0.0-beta08'
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha07"
     // Material Design
-    implementation 'androidx.compose.material:material:1.0.0-beta06'
+    implementation 'androidx.compose.material:material:1.0.0-beta08'
     // Integration with activities
-    implementation 'androidx.activity:activity-compose:1.3.0-alpha07'
+    implementation 'androidx.activity:activity-compose:1.3.0-beta01'
     // Integration with ViewModels
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha04'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha06'
     // Integration with observables
-    implementation 'androidx.compose.runtime:runtime:1.0.0-beta06'
+    implementation 'androidx.compose.runtime:runtime:1.0.0-beta08'
 
     // navigation
-    implementation "androidx.navigation:navigation-compose:1.0.0-alpha10"
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha02"
 
     // DI
     implementation 'com.google.dagger:dagger:2.35'

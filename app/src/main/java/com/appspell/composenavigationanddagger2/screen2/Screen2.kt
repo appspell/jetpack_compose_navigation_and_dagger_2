@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import com.appspell.composenavigationanddagger2.NavigationDestination
 import com.appspell.composenavigationanddagger2.R
 
@@ -31,12 +30,7 @@ fun Screen2(
 
         Button(onClick = {
             navController.navigate(NavigationDestination.Screen1.destination) {
-                // Pop up to the start destination of the graph to
-                // avoid building up a large stack of destinations
-                // on the back stack as users select items
-                popUpTo = navController.graph.startDestination
-                // Avoid multiple copies of the same destination when
-                // reselecting the same item
+                popUpTo(navController.graph.startDestinationId)
                 launchSingleTop = true
             }
         }) {
